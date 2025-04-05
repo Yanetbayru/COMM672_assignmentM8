@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     box-sizing: border-box;
 }
@@ -17,6 +18,7 @@ h2 {
     font-size: 1.5rem;
     margin-bottom: 32px;
     font-weight: 600;
+    text-align: center;
 }
 h3 {
     font-size: 1.4rem;
@@ -29,24 +31,21 @@ h3 {
 }
 a {
     color: #e6a563;
+    text-decoration: none;
 }
 a:hover {
     opacity: 0.8;
-}
-h2 {
-    text-align: center;
 }
 img {
     width: 100%;
 }
 
-/**Header**/
+/* Header */
 header {
     background-color: #efefef;
 }
 header a {
-    text-decoration: none;
-    color: #000
+    color: #000;
 }
 header a:hover {
     color: #e6a563;
@@ -66,6 +65,9 @@ header ul {
     display: flex;
     align-items: center;
 }
+nav li {
+    margin: 0 1em;
+}
 .button {
     background-color: #e6a563;
     border-radius: 10px;
@@ -74,11 +76,8 @@ header ul {
 .button:hover {
     background-color: #fff;
 }
-nav li {
-    margin: 0 1em;
-}
 
-/**Home Page**/
+/* Home Page */
 body.home {
     background-color: #efefef;
 }
@@ -101,24 +100,24 @@ body.home {
 }
 .feature-container {
     display: flex;
-    justify-content: center;
-    gap: 50px;
-    padding-bottom: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
 }
-.feature-block {
-    text-align: center;
+.feature-box {
     background-color: #fff;
+    text-align: center;
     padding: 20px;
-    flex: auto;
-    width: 33%;
+    flex: 1;
 }
+
+/* Testimonials */
 .testimonials {
     background-color: #222e50;
     padding-bottom: 30px;
 }
 .testimonials h2 {
     color: #fff;
-    text-align: center;
 }
 .testimonial-container {
     display: flex;
@@ -127,9 +126,10 @@ body.home {
 .testimonial-block {
     background-color: #fff;
     padding: 20px;
-    flex: auto;
-    width: 33%;
+    flex: 1;
 }
+
+/* Team Section */
 .team {
     padding-bottom: 20px;
 }
@@ -140,71 +140,22 @@ body.home {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap;
 }
 .team-block {
     text-align: center;
-    width: 25%;
+    flex: 1 1 180px;
+    max-width: 200px;
 }
 
-/**About Page (using Flexbox) **/
-.about {
+/* About Page */
+body.about {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.about .team-member {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.about .team-member img {
-    width: 80px;
-    height: 80px;
-}
-
-@media (max-width: 768px) {
-    header {
-        display: none;
-    }
-
-    .hero {
-        flex-direction: column;
-        justify-content: center;
-        padding: 20px 10px;
-    }
-
-    .hero img {
-        width: 100%;
-    }
-
-    .feature-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .team-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .about .team-member {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .feature-block {
-        width: 100%;
-    }
-
-    .feature-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-
-/**Community Page**/
+/* Community Page */
 .community {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -218,7 +169,7 @@ body.home {
 .event-block {
     border: 1px solid #efefef;
     box-shadow: 10px 10px 10px #efefef;
-    text-align: center;;
+    text-align: center;
 }
 .event-block img {
     width: 100%;
@@ -230,8 +181,8 @@ body.home {
     grid-column: span 3;
     display: grid;
     grid-template-areas: 
-    "image title"
-    "image text";
+        "image title"
+        "image text";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
     grid-column-gap: 20px;
@@ -250,13 +201,13 @@ body.home {
 .event-block span {
     font-style: italic;
     color: #787878;
-    font-size: 0.9em;;
+    font-size: 0.9em;
 }
 .event-block p {
     padding-bottom: 20px;
 }
 
-/**Feature Page**/
+/* Feature Page */
 .feature-page-block {
     border: 1px solid #efefef;
     padding: 20px;
@@ -270,7 +221,7 @@ body.home {
     object-fit: cover;
 }
 
-/**Footer**/
+/* Footer */
 footer {
     text-align: center;
     background-color: #D9D9D9;
@@ -280,63 +231,96 @@ footer img {
     width: 35px;
 }
 
-/* Mobile styles (below 768px) */
-@media (max-width: 768px) {
-    /* Hide the header on mobile */
+/* -------------------
+   Media Queries
+------------------- */
+
+/* Tablet view (iPad Air) */
+@media screen and (max-width: 1024px) {
     header {
         display: none;
     }
 
-    .hero {
-        flex-direction: column;
-    }
-
-    .feature-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
+    .hero,
+    .feature-container,
     .team-container {
         flex-direction: column;
-        gap: 20px;
-    }
-
-    .hero img {
-        width: 100%;
-    }
-
-    .feature-block {
-        width: 100%;
-    }
-}
-
-/* Tablet styles (below 1024px) */
-@media (max-width: 1024px) {
-    /* Hide the header on tablets as well */
-    header {
-        display: none;
-    }
-
-    /* Adjust layout for tablet */
-    .hero {
-        flex-direction: column;
-    }
-
-    .feature-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .team-container {
-        flex-direction: column;
-        gap: 20px;
+        align-items: center;
     }
 
     .hero img {
         width: 80%;
     }
 
-    .feature-block {
+    .feature-box {
+        width: 90%;
+    }
+
+    .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-block {
+        width: 90%;
+    }
+
+    .community {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .event-block.featured {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "image"
+            "title"
+            "text";
+    }
+
+    .feature-page-block {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile view (iPhone 12 Pro) */
+@media screen and (max-width: 768px) {
+    header {
+        display: none;
+    }
+
+    .hero,
+    .feature-container,
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero img {
         width: 100%;
+    }
+
+    .feature-box,
+    .testimonial-block,
+    .team-block {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .community {
+        grid-template-columns: 1fr;
+    }
+
+    .event-block.featured {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "image"
+            "title"
+            "text";
+    }
+
+    .feature-page-block {
+        width: 90%;
+        margin: 0 auto;
     }
 }
